@@ -1,0 +1,13 @@
+# Secrets
+.env
+
+# Dépendances / fichiers locaux
+vendor/
+mailer.php
+
+# Éditeurs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,4 @@
+# Interdit l'accès web au fichier .env
+<Files ".env">
+    Require all denied
+</Files>
