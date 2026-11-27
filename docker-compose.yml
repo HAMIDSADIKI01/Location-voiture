@@ -1,0 +1,28 @@
+# Lancement local complet : docker compose up --build
+# Site : http://localhost:8000
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      APP_DEBUG: "true"
+      DB_HOST: db
+      DB_PORTS: "3306"
+      DB_NAME: voiture
+      DB_USER: root
+      DB_PASS: root
+      ADMIN_PASSWORD: changeme
+      SMS_ACTIF: "false"
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: voiture
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata:
